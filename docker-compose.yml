@@ -1,0 +1,15 @@
+version: "2"
+services:
+  web:
+    image: petekaik/nginx-healthcheck
+    container_name: nginx
+    network_mode: ${NETWORK}
+    hostname: nginx
+    ports:
+      - ${HTTP}:80
+      - ${HTTPS}:443
+    volumes:
+      - ${WEBROOT}:/www:ro
+      - ${CERTS}:/etc/nginx/certs:ro
+      - ${CONF}:/etc/nginx/conf.d:ro
+    restart: always
