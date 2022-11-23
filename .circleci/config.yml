@@ -5,4 +5,4 @@ workflows:
     example-workflow:
       jobs:
         - docker/publish:
-            image: petekaik/nginx-healthcheck 
+            image: petekaik/nginx-healthcheck
