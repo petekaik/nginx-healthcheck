@@ -1,8 +1,18 @@
 version: 2.1
+
 orbs:
   docker: circleci/docker@1.7.0
+  
+jobs:
+  build-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - docker/build:
+          image: petekaik/nginx-healthcheck 
+
 workflows:
-    example-workflow:
-      jobs:
-        - docker/publish:
-            image: petekaik/nginx-healthcheck
+  build-workflow:
+    jobs:
+      - build-job
